@@ -1,164 +1,114 @@
 import React from 'react'
+import ReactDOM from 'react-dom'
+import $ from 'jquery'
+import AutoSizeTextarea from 'react-textarea-autosize'
+import marked from 'marked'
+import 'font-awesome/css/font-awesome.css'
 import './index.scss'
 
+import ToolbarTable from './toolbar/table'
+
+// 设置渲染模式
+marked.setOptions({
+    gfm: true,
+    tables: true,
+    breaks: true,
+    pedantic: false,
+    sanitize: true,
+    smartLists: false,
+    silent: false,
+    langPrefix: 'prettyprint',
+    smartypants: false,
+    headerPrefix: '',
+    xhtml: false
+})
+
 export default class Editor extends React.Component {
+    constructor(props) {
+        super(props)
+        this.state = {}
+    }
+
+    componentDidMount() {
+        this.dom = ReactDOM.findDOMNode(this)
+        let textareaArray = this.dom.getElementsByClassName('textarea')
+        if (textareaArray.length > 0) {
+            this.textarea = textareaArray[0]
+        }
+    }
+
+    handleTextareaChange(event) {
+        console.log(marked(event.target.value))
+    }
+
     render() {
         return (
-            <div class="f-cb _namespace">
-                <div class="f-wm tool-bar">
-                    <div class="i f-hvc effect fa fa-header j-ul-list"
+            <div className="_namespace">
+                <div className="tool-bar">
+                    <div className="i effect fa fa-header j-ul-list"
                          type="header">
-                        <ul class="f-bln">
-                            <li class="effect"
+                        <ul className="f-bln">
+                            <li className="effect"
                                 type="h1">h1
                             </li>
-                            <li class="effect"
+                            <li className="effect"
                                 type="h2">h2
                             </li>
-                            <li class="effect"
+                            <li className="effect"
                                 type="h3">h3
                             </li>
-                            <li class="effect"
+                            <li className="effect"
                                 type="h4">h4
                             </li>
-                            <li class="effect"
+                            <li className="effect"
                                 type="h5">h5
                             </li>
-                            <li class="effect"
+                            <li className="effect"
                                 type="h6">h6
                             </li>
                         </ul>
                     </div>
-                    <div class="i f-hvc effect fa fa-bold"
+                    <div className="i f-hvc effect fa fa-bold"
                          type="bold"></div>
-                    <div class="i f-hvc effect fa fa-italic"
+                    <div className="i f-hvc effect fa fa-italic"
                          type="italic"></div>
-                    <div class="i f-hvc effect fa fa-link"
+                    <div className="i f-hvc effect fa fa-link"
                          type="link"></div>
-                    <div class="i f-hvc effect fa fa-quote-left"
+                    <div className="i f-hvc effect fa fa-quote-left"
                          type="quote-left"></div>
-                    <div class="i f-hvc effect fa fa-code"
+                    <div className="i f-hvc effect fa fa-code"
                          type="code"></div>
-                    <div class="i f-hvc effect fa fa-tag"
+                    <div className="i f-hvc effect fa fa-tag"
                          type="tag"></div>
-                    <div class="i f-hvc effect fa fa-list-ol"
+                    <div className="i f-hvc effect fa fa-list-ol"
                          type="list-ol"></div>
-                    <div class="i f-hvc effect fa fa-list-ul"
+                    <div className="i f-hvc effect fa fa-list-ul"
                          type="list-ul"></div>
-                    <div class="i f-hvc effect fa fa-minus"
+                    <div className="i f-hvc effect fa fa-minus"
                          type="minus"></div>
-                    <div class="i f-hvc effect fa fa-image dz-clickable"
+                    <div className="i f-hvc effect fa fa-image dz-clickable"
                          type="image"></div>
-                    <div class="i f-hvc effect fa fa-table j-table">
-                        <table>
-                            <tbody>
-                            <tr>
-                                <td class="effect"
-                                    type="table"></td>
-                                <td class="effect"
-                                    type="table"></td>
-                                <td class="effect"
-                                    type="table"></td>
-                                <td class="effect"
-                                    type="table"></td>
-                                <td class="effect"
-                                    type="table"></td>
-                                <td class="effect"
-                                    type="table"></td>
-                            </tr>
-                            <tr>
-                                <td class="effect"
-                                    type="table"></td>
-                                <td class="effect"
-                                    type="table"></td>
-                                <td class="effect"
-                                    type="table"></td>
-                                <td class="effect"
-                                    type="table"></td>
-                                <td class="effect"
-                                    type="table"></td>
-                                <td class="effect"
-                                    type="table"></td>
-                            </tr>
-                            <tr>
-                                <td class="effect"
-                                    type="table"></td>
-                                <td class="effect"
-                                    type="table"></td>
-                                <td class="effect"
-                                    type="table"></td>
-                                <td class="effect"
-                                    type="table"></td>
-                                <td class="effect"
-                                    type="table"></td>
-                                <td class="effect"
-                                    type="table"></td>
-                            </tr>
-                            <tr>
-                                <td class="effect"
-                                    type="table"></td>
-                                <td class="effect"
-                                    type="table"></td>
-                                <td class="effect"
-                                    type="table"></td>
-                                <td class="effect"
-                                    type="table"></td>
-                                <td class="effect"
-                                    type="table"></td>
-                                <td class="effect"
-                                    type="table"></td>
-                            </tr>
-                            <tr>
-                                <td class="effect"
-                                    type="table"></td>
-                                <td class="effect"
-                                    type="table"></td>
-                                <td class="effect"
-                                    type="table"></td>
-                                <td class="effect"
-                                    type="table"></td>
-                                <td class="effect"
-                                    type="table"></td>
-                                <td class="effect"
-                                    type="table"></td>
-                            </tr>
-                            <tr>
-                                <td class="effect"
-                                    type="table"></td>
-                                <td class="effect"
-                                    type="table"></td>
-                                <td class="effect"
-                                    type="table"></td>
-                                <td class="effect"
-                                    type="table"></td>
-                                <td class="effect"
-                                    type="table"></td>
-                                <td class="effect"
-                                    type="table"></td>
-                            </tr>
-                            </tbody>
-                        </table>
+                    <div className="i f-hvc effect fa fa-table j-table">
+                        <ToolbarTable/>
                     </div>
-                    <div class="i f-hvc effect fa fa-save"
+                    <div className="i f-hvc effect fa fa-save"
                          type="save"></div>
-                    <div class="i f-hvc effect fa fa-paste"
+                    <div className="i f-hvc effect fa fa-paste"
                          type="paste"></div>
-                    <div class="i effect fa fa-maxcdn f-fr"
-                         id="markdown-enable"></div>
                 </div>
 
-                <textarea id="editor"
-                          maxlength="20000"
-                          class="f-w12 f-btn f-mb10"
-                          style="overflow: hidden; word-wrap: break-word; height: 200px;"/>
-                
-                <div class="f-usn">
-                    <div class="f-w12 f-p20 preview border-bottom"></div>
-                </div>
+                <AutoSizeTextarea onChange={this.handleTextareaChange.bind(this)}
+                                  className="textarea"/>
             </div>
         )
     }
 }
 
-Editor.defaultProps = {}
+Editor.defaultProps = {
+    // @desc 上传图片地址
+    uploadUrl: '',
+
+    // @desc 上传参数
+    uploadParams: {}
+}
 

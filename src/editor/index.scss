@@ -9,24 +9,30 @@
   }
   .preview.border-right {
   }
-  // 数据框
-  textarea {
+
+  // 输入框
+  .textarea {
     min-height: 200px;
-    word-wrap: break-word;
+    width: 100%;
     outline: none;
+    border: 1px solid #ccc;
+    border-top: none;
+    resize: none;
+    padding: 10px;
+    word-wrap: break-word;
   }
+
   // 工具栏
   .tool-bar {
     background: #f6f6f6;
     border: 1px solid #ccc;
     font-size: 14px;
-    @include user-select(none);
+    user-select: none;
     .i {
       position: relative;
       height: 30px;
       line-height: 30px;
       padding: 0 15px;
-      cursor: hand;
       cursor: pointer;
       color: #444;
       display: inline-block;

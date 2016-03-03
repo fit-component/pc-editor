@@ -1,5 +1,5 @@
 import React from 'react'
-import Editor from 'fit-edito'
+import Editor from 'fit-editor'
 
 export default class Demo extends React.Component {
     render() {
