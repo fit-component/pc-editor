@@ -1,19 +1,31 @@
-.lib-pc-editor-lib-editor .preview {
-  word-wrap: break-word;
-  display: none; }
-
-.lib-pc-editor-lib-editor .preview.border-bottom {
-  border: 1px dotted #ccc; }
-
-.lib-pc-editor-lib-editor .textarea {
-  min-height: 200px;
-  width: 100%;
-  outline: none;
+.lib-pc-editor-lib-editor .textarea-preview-container {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
   border: 1px solid #ccc;
-  border-top: none;
-  resize: none;
-  padding: 10px;
-  word-wrap: break-word; }
+  border-top: none; }
+  .lib-pc-editor-lib-editor .textarea-preview-container .preview {
+    -webkit-box-flex: 1;
+    -webkit-flex-grow: 1;
+        -ms-flex-positive: 1;
+            flex-grow: 1;
+    width: 0;
+    word-wrap: break-word;
+    padding: 10px; }
+  .lib-pc-editor-lib-editor .textarea-preview-container .textarea {
+    -webkit-box-flex: 1;
+    -webkit-flex-grow: 1;
+        -ms-flex-positive: 1;
+            flex-grow: 1;
+    width: 0;
+    min-height: 200px;
+    outline: none;
+    resize: none;
+    border: none;
+    border-right: 1px solid #ccc;
+    padding: 10px;
+    word-wrap: break-word; }
 
 .lib-pc-editor-lib-editor .tool-bar {
   background: #f6f6f6;
