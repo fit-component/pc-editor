@@ -26,7 +26,9 @@ marked.setOptions({
 export default class Editor extends React.Component {
     constructor(props) {
         super(props)
-        this.state = {}
+        this.state = {
+            value: ''
+        }
     }
 
     componentDidMount() {
@@ -38,7 +40,9 @@ export default class Editor extends React.Component {
     }
 
     handleTextareaChange(event) {
-        console.log(marked(event.target.value))
+        this.setState({
+            value: event.target.value
+        })
     }
 
     render() {
@@ -97,8 +101,13 @@ export default class Editor extends React.Component {
                          type="paste"></div>
                 </div>
 
-                <AutoSizeTextarea onChange={this.handleTextareaChange.bind(this)}
-                                  className="textarea"/>
+                <div className="textarea-preview-container">
+                    <AutoSizeTextarea onChange={this.handleTextareaChange.bind(this)}
+                                      className="textarea"/>
+
+                    <div className="preview"
+                         dangerouslySetInnerHTML={{__html: marked(this.state.value)}}></div>
+                </div>
             </div>
         )
     }
@@ -109,6 +118,9 @@ Editor.defaultProps = {
     uploadUrl: '',
 
     // @desc 上传参数
-    uploadParams: {}
+    uploadParams: {},
+
+    // @desc 是否自动拓展高度
+    autoHeight: false
 }
 

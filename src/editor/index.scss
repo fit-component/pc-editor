@@ -1,25 +1,29 @@
 & {
-  // 预览框
-  .preview {
-    word-wrap: break-word;
-    display: none;
-  }
-  .preview.border-bottom {
-    border: 1px dotted #ccc;
-  }
-  .preview.border-right {
-  }
-
-  // 输入框
-  .textarea {
-    min-height: 200px;
-    width: 100%;
-    outline: none;
+  .textarea-preview-container {
+    display: flex;
     border: 1px solid #ccc;
     border-top: none;
-    resize: none;
-    padding: 10px;
-    word-wrap: break-word;
+
+    // 预览框
+    .preview {
+      flex-grow: 1;
+      width: 0;
+      word-wrap: break-word;
+      border-left: 1px solid #ccc;
+      padding: 10px;
+    }
+
+    // 输入框
+    .textarea {
+      flex-grow: 1;
+      width: 0;
+      min-height: 200px;
+      outline: none;
+      resize: none;
+      border: none;
+      padding: 10px;
+      word-wrap: break-word;
+    }
   }
 
   // 工具栏

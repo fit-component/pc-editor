@@ -1,2 +1,2 @@
 // @demo
-// basic:24
+// basic:24 auto-height:24
