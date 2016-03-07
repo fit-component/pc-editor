@@ -9,7 +9,6 @@
       flex-grow: 1;
       width: 0;
       word-wrap: break-word;
-      border-left: 1px solid #ccc;
       padding: 10px;
     }
 
@@ -21,6 +20,7 @@
       outline: none;
       resize: none;
       border: none;
+      border-right: 1px solid #ccc;
       padding: 10px;
       word-wrap: break-word;
     }

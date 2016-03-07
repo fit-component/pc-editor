@@ -1,8 +1,8 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import $ from 'jquery'
 import AutoSizeTextarea from 'react-textarea-autosize'
 import marked from 'marked'
+import effect from './effect'
 import 'font-awesome/css/font-awesome.css'
 import './index.scss'
 
@@ -45,63 +45,75 @@ export default class Editor extends React.Component {
         })
     }
 
+    handleToolbarClick(type) {
+        effect(type, this.textarea, this.forceUpdate.bind(this))
+    }
+
+    // 因为jquery操作了dom,所以强制刷新
+    forceUpdate() {
+        this.setState({
+            value: this.textarea.value
+        })
+    }
+
     render() {
+        let { autoHeight, height, ...others } = this.props
+
+        let previewStyle = {
+            height: !autoHeight ? height : null,
+            overflowY: !autoHeight ? 'auto' : null
+        }
+
         return (
-            <div className="_namespace">
+            <div {...others} className="_namespace">
                 <div className="tool-bar">
                     <div className="i effect fa fa-header j-ul-list"
-                         type="header">
+                         onClick={this.handleToolbarClick.bind(this,'header')}>
                         <ul className="f-bln">
                             <li className="effect"
-                                type="h1">h1
+                                onClick={this.handleToolbarClick.bind(this,'h1')}>h1
                             </li>
                             <li className="effect"
-                                type="h2">h2
+                                onClick={this.handleToolbarClick.bind(this,'h2')}>h2
                             </li>
                             <li className="effect"
-                                type="h3">h3
+                                onClick={this.handleToolbarClick.bind(this,'h3')}>h3
                             </li>
                             <li className="effect"
-                                type="h4">h4
+                                onClick={this.handleToolbarClick.bind(this,'h4')}>h4
                             </li>
                             <li className="effect"
-                                type="h5">h5
+                                onClick={this.handleToolbarClick.bind(this,'h5')}>h5
                             </li>
                             <li className="effect"
-                                type="h6">h6
+                                onClick={this.handleToolbarClick.bind(this,'h6')}>h6
                             </li>
                         </ul>
                     </div>
                     <div className="i f-hvc effect fa fa-bold"
-                         type="bold"></div>
+                         onClick={this.handleToolbarClick.bind(this,'bold')}></div>
                     <div className="i f-hvc effect fa fa-italic"
-                         type="italic"></div>
+                         onClick={this.handleToolbarClick.bind(this,'italic')}></div>
                     <div className="i f-hvc effect fa fa-link"
-                         type="link"></div>
+                         onClick={this.handleToolbarClick.bind(this,'link')}></div>
                     <div className="i f-hvc effect fa fa-quote-left"
-                         type="quote-left"></div>
+                         onClick={this.handleToolbarClick.bind(this,'quote-left')}></div>
                     <div className="i f-hvc effect fa fa-code"
-                         type="code"></div>
+                         onClick={this.handleToolbarClick.bind(this,'code')}></div>
                     <div className="i f-hvc effect fa fa-tag"
-                         type="tag"></div>
+                         onClick={this.handleToolbarClick.bind(this,'tag')}></div>
                     <div className="i f-hvc effect fa fa-list-ol"
-                         type="list-ol"></div>
+                         onClick={this.handleToolbarClick.bind(this,'list-ol')}></div>
                     <div className="i f-hvc effect fa fa-list-ul"
-                         type="list-ul"></div>
+                         onClick={this.handleToolbarClick.bind(this,'list-ul')}></div>
                     <div className="i f-hvc effect fa fa-minus"
-                         type="minus"></div>
-                    <div className="i f-hvc effect fa fa-image dz-clickable"
-                         type="image"></div>
-                    <div className="i f-hvc effect fa fa-table j-table">
-                        <ToolbarTable/>
-                    </div>
-                    <div className="i f-hvc effect fa fa-save"
-                         type="save"></div>
-                    <div className="i f-hvc effect fa fa-paste"
-                         type="paste"></div>
+                         onClick={this.handleToolbarClick.bind(this,'minus')}></div>
+
+
                 </div>
 
-                <div className="textarea-preview-container">
+                <div style={previewStyle}
+                     className="textarea-preview-container">
                     <AutoSizeTextarea onChange={this.handleTextareaChange.bind(this)}
                                       className="textarea"/>
 
@@ -121,6 +133,18 @@ Editor.defaultProps = {
     uploadParams: {},
 
     // @desc 是否自动拓展高度
-    autoHeight: false
+    autoHeight: false,
+
+    // @desc 高度,只有设置了 autoHeight 才有效
+    height: 200
 }
 
+//<div className="i f-hvc effect fa fa-image dz-clickable"
+//     onClick={this.handleToolbarClick.bind(this,'image')}></div>
+//<div className="i f-hvc effect fa fa-table j-table">
+//    <ToolbarTable/>
+//</div>
+//<div className="i f-hvc effect fa fa-save"
+//onClick={this.handleToolbarClick.bind(this,'save')}></div>
+//<div className="i f-hvc effect fa fa-paste"
+//onClick={this.handleToolbarClick.bind(this,'paste')}></div>
