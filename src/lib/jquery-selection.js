@@ -1,5 +1,10 @@
 import $ from 'jquery'
 
+let isNode = !(typeof window !== 'undefined' && window !== null)
+if (isNode) {
+    return
+}
+
 (function ($, win, doc) {
     /**
      * get caret status of the selection of the element
@@ -327,4 +332,4 @@ import $ from 'jquery'
             return this;
         }
     });
-})($, typeof window && window, typeof window && window.document);
+})($, window, window.document);
