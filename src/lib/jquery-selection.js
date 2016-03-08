@@ -327,4 +327,4 @@ import $ from 'jquery'
             return this;
         }
     });
-})($, window, window.document);
+})($, typeof window && window, typeof window && window.document);
