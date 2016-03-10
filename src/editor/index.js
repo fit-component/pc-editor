@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom'
 import AutoSizeTextarea from 'react-textarea-autosize'
 import marked from 'marked'
 import effect from './effect'
+import classNames from 'classnames'
 import 'font-awesome/css/font-awesome.css'
 import './index.scss'
 
@@ -57,7 +58,11 @@ export default class Editor extends React.Component {
     }
 
     render() {
-        let { autoHeight, height, ...others } = this.props
+        const {className, autoHeight, height, ...others} = this.props
+        const classes = classNames({
+            '_namespace': true,
+            [className]: className
+        })
 
         let previewStyle = {
             height: !autoHeight ? height : null,
@@ -65,7 +70,7 @@ export default class Editor extends React.Component {
         }
 
         return (
-            <div {...others} className="_namespace">
+            <div {...others} className={classes}>
                 <div className="tool-bar">
                     <div className="i effect fa fa-header j-ul-list"
                          onClick={this.handleToolbarClick.bind(this,'header')}>
