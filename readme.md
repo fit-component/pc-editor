@@ -5,5 +5,5 @@
 ---
 
 ````jsx
-npm install fit-editor /* or */ fis3 install fit-editor
+npm install fit-editor
 ````
