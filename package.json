@@ -1,6 +1,6 @@
 {
   "name": "fit-editor",
-  "version": "2.0.19",
+  "version": "2.0.27",
   "description": "富文本",
   "main": "lib/index.js",
   "scripts": {
