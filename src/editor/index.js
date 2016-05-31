@@ -113,8 +113,6 @@ export default class Editor extends React.Component {
                          onClick={this.handleToolbarClick.bind(this,'list-ul')}></div>
                     <div className="i f-hvc effect fa fa-minus"
                          onClick={this.handleToolbarClick.bind(this,'minus')}></div>
-
-
                 </div>
 
                 <div style={previewStyle}
