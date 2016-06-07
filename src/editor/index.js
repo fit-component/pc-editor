@@ -4,7 +4,6 @@ import AutoSizeTextarea from 'react-textarea-autosize'
 import marked from 'marked'
 import effect from './effect'
 import classNames from 'classnames'
-import 'font-awesome/css/font-awesome.css'
 import './index.scss'
 
 import ToolbarTable from './toolbar/table'
@@ -141,13 +140,3 @@ Editor.defaultProps = {
     // @desc 高度,只有设置了 autoHeight 才有效
     height: 200
 }
-
-//<div className="i f-hvc effect fa fa-image dz-clickable"
-//     onClick={this.handleToolbarClick.bind(this,'image')}></div>
-//<div className="i f-hvc effect fa fa-table j-table">
-//    <ToolbarTable/>
-//</div>
-//<div className="i f-hvc effect fa fa-save"
-//onClick={this.handleToolbarClick.bind(this,'save')}></div>
-//<div className="i f-hvc effect fa fa-paste"
-//onClick={this.handleToolbarClick.bind(this,'paste')}></div>
