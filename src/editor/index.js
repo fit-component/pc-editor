@@ -69,7 +69,7 @@ export default class Editor extends React.Component {
         }
 
         return (
-            <div {...others} className={classes}>
+            <div className={classes}>
                 <div className="tool-bar">
                     <div className="i effect fa fa-header j-ul-list"
                          onClick={this.handleToolbarClick.bind(this,'header')}>
