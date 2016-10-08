@@ -43,6 +43,7 @@ export default class Editor extends React.Component {
         this.setState({
             value: event.target.value
         })
+        this.props.onChange(event.target.value)
     }
 
     handleToolbarClick(type) {
@@ -117,6 +118,7 @@ export default class Editor extends React.Component {
                 <div style={previewStyle}
                      className="textarea-preview-container">
                     <AutoSizeTextarea onChange={this.handleTextareaChange.bind(this)}
+                                      defaultValue={this.props.defaultValue}
                                       className="textarea"/>
 
                     <div className="preview"
@@ -138,5 +140,11 @@ Editor.defaultProps = {
     autoHeight: false,
 
     // @desc 高度,只有设置了 autoHeight 才有效
-    height: 200
+    height: 200,
+
+    // 默认内容
+    defaultValue: '',
+
+    // @desc 当内容有改动
+    onChange: ()=> {}
 }
