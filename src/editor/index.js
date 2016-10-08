@@ -31,6 +31,12 @@ export default class Editor extends React.Component {
         }
     }
 
+    componentWillMount() {
+        this.setState({
+            value: this.props.defaultValue
+        })
+    }
+
     componentDidMount() {
         this.dom = ReactDOM.findDOMNode(this)
         let textareaArray = this.dom.getElementsByClassName('textarea')
