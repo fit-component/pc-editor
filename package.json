@@ -1,6 +1,6 @@
 {
   "name": "fit-editor",
-  "version": "3.0.42",
+  "version": "3.0.44",
   "description": "富文本",
   "main": "lib/index.js",
   "scripts": {
@@ -13,14 +13,14 @@
   "author": "huangziyi01",
   "license": "ISC",
   "dependencies": {
-    "jquery": "^1.12.4",
-    "lodash": "^3.10.1",
+    "jquery": "1.12.4",
+    "lodash": "3.10.1",
     "react": "^0.14.0 || ^15.0.0",
     "react-dom": "^0.14.0 || ^15.0.0",
-    "react-textarea-autosize": "^4.0.0",
-    "marked": "^0.3.5",
-    "classnames": "^2.2.3",
-    "font-awesome": "^4.6.1"
+    "react-textarea-autosize": "4.0.0",
+    "marked": "0.3.5",
+    "classnames": "2.2.3",
+    "font-awesome": "4.6.1"
   },
   "typings": "lib/index.d.ts"
 }
